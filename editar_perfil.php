@@ -45,7 +45,7 @@ $csrf = $_SESSION['csrf_token'];
     <link rel="stylesheet" href="estilos.css">
     <style>
       /* Estilos mínimos para que se vea correcto si no usas tu CSS */
-      .form-card{ max-width:720px; margin:36px auto; padding:20px; border-radius:12px; background: rgba(45, 213, 146, 0.96); border:1px solid rgba(255,255,255,.06);}
+      .form-card{ max-width:720px; margin:36px auto; padding:20px; border-radius:12px; background: #cbeebb; border:1px solid rgba(255,255,255,.06);}
       label{ font-weight:600; }
     </style>
 </head>
