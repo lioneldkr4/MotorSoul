@@ -25,8 +25,7 @@ if (isset($_SESSION['cliente'])) {
             </div>
             <ul>
             <button type="button" class="boton-nav" onclick="window.location.href='valores.php'">Acerca de nosotros</button>
-            <button type="button" class="boton-nav" onclick="window.location.href='iniciarsesionusuario.php'">Iniciar sesión</button> 
-            <button type="button" class="boton-nav" onclick="window.location.href='iniciarsesionadmin.php'">Iniciar sesión Administrador</button>                 
+            <button type="button" class="boton-nav" onclick="window.location.href='login.php'">Iniciar sesión</button> 
             <button type="button" class="boton-nav" onclick="window.location.href='registrousuario.php'">Registrarse</button>
             </ul>
         </nav>

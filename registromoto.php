@@ -19,6 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $tipo = $_POST["tipo"];
     $color = $_POST["color"];
     $existencia = intval($_POST["existencia"]);
+    $descripcion = $_POST["descripcion"];
     $imagen = $_FILES['imagen'];
 
     // Validaciones del lado del servidor
@@ -47,8 +48,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if (move_uploaded_file($rutaTemporal, $rutaDestinoCompleta)) {
             try {
                 $conn = Conexion::conectar();
-                $sql = "INSERT INTO motocicletas (marca, modelo, anio, precio, hp, transmision, tipo, color, existencia, imagen)
-                        VALUES (:marca, :modelo, :anio, :precio, :hp, :transmision, :tipo, :color, :existencia, :imagen)";
+                $sql = "INSERT INTO motocicletas (marca, modelo, anio, precio, hp, transmision, tipo, color, existencia, descripcion, imagen)
+                        VALUES (:marca, :modelo, :anio, :precio, :hp, :transmision, :tipo, :color, :existencia, :descripcion, :imagen)";
                 $stmt = $conn->prepare($sql);
                 $stmt->execute([
                     ":marca" => $marca,
@@ -60,6 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     ":tipo" => $tipo,
                     ":color" => $color,
                     ":existencia" => $existencia,
+                    ":descripcion" => $descripcion,
                     ":imagen" => $nuevaRutaRelativa
                 ]);
 
@@ -128,7 +130,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <label for="existencia">Existencia</label>
         <input type="number" name="existencia" id="existencia" placeholder="Existencia..." min="0" max="20" required>
 
-        
+        <label for="descripcion" class="form-label">Descripción</label>
+        <textarea id="descripcion" name="descripcion"
+            class="form-control" rows="3" placeholder="Descripción..."></textarea>
 
         <label for="imagen">Imagen</label>
         <input class="campos" type="file" name="imagen" id="imagen" accept="image/*" required>
